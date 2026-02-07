@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaario operaciones báasicas de números</title>
+    <Script> 
+    
+        function calculadora(form) {
+        var resultado;
+        switch	( parseInt(form.comboOperaciones.value) ){
+            case 1: resultado = parseFloat(form.txtPrimerNumero.value)+parseFloat(form.txtSegundoNumero.value);
+                    alert("La suma es: "+resultado);
+                break;
+            case 2: resultado = parseFloat(form.txtPrimerNumero.value)-parseFloat(form.txtSegundoNumero.value);
+                    alert("La resta es: "+resultado);
+                break;
+            case 3: resultado = parseFloat(form.txtPrimerNumero.value)*parseFloat(form.txtSegundoNumero.value);
+                    alert("La multiplicación es: "+resultado);
+                break;
+            case 4: if ( parseFloat(form.txtSegundoNumero.value)!=0 ){
+                        resultado = parseFloat(form.txtPrimerNumero.value)/parseFloat(form.txtSegundoNumero.value);
+                        alert("La división es: "+resultado);
+                    }else {
+                        alert("División entre cero no permitida");
+                    }
+                break;
+            default:
+                    alert("Operación no seleccionada");
+        }
+       } 
+    </Script>
+</head>
+<body>
+    <form onSubmit="calculadora(frmOperaciones)" action="" method="post" name="frmOperaciones" id="frmOperaciones">
+        <table width="300" border="1" align="center">
+          <tr align="center" valign="middle">
+            <td colspan="2">Operación de dos números</td>
+          </tr>
+          <tr>
+            <td width="50%" align="right" valign="middle">primer operando:</td>
+            <td><input name="txtPrimerNumero" type="text" id="txtPrimerNumero" maxlength="6"></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">segundo operando: </td>
+            <td><input name="txtSegundoNumero" type="text" id="txtSegundoNumero"></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Operación:</td>
+          <td align="center" valign="middle">
+              <select name="comboOperaciones" id="comboOperaciones">
+                <option></option>
+                <option value="1">Suma</option>
+                <option value="2">Resta</option>
+                <option value="3">Multiplicación</option>
+                <option value="4">División</option>
+              </select>
+          </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center" valign="middle">
+              <input name="cmdEnviar" type="submit" id="cmdEnviar" value="Enviar">
+              <input name="cmdBorrar" type="reset" id="cmdBorrar" value="Borrar">
+            </td>
+          </tr>
+        </table>
+        </form>   
+</body>
+</html>
